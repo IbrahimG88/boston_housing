@@ -12096,12 +12096,24 @@ Standard deviation of prices: $165171.131544
 <li>Would you consider this model to have successfully captured the variation of the target variable? </li>
 <li>Why or why not?</li>
 </ul>
-<p><strong> Hint: </strong>  The R2 score is the proportion of the variance in the dependent variable that is predictable from the independent variable. In other words:</p>
+<p><strong> Hint: </strong></p>
 <ul>
+<li>The R2 score is the proportion of the variance in the dependent variable that is predictable from the independent variable. In other words:</li>
 <li>R2 score of 0 means that the dependent variable cannot be predicted from the independent variable.</li>
 <li>R2 score of 1 means the dependent variable can be predicted from the independent variable.</li>
 <li>R2 score between 0 and 1 indicates the extent to which the dependent variable is predictable. An </li>
-<li>R2 score of 0.40 means that 40 percent of the variance in Y is predictable from X.</li>
+<li><p>R2 score of 0.40 means that 40 percent of the variance in Y is predictable from X.</p>
+</li>
+<li><p>The mean squared error  of the distance  of a point, is the value of the distance between the point and the line for prediction or the boundary.</p>
+</li>
+<li><p>The R^2 score is achieved by subtracting  the total sum of squared errors from linear regression model divided by the  sum of squares by  of a simple regression model, a simple horizontal line that is not a good prediction model from the integer 1.</p>
+</li>
+<li><p>R-squared = Explained variation / Total variation</p>
+</li>
+<li><p>The R^2 value ranges from 0 to 1.</p>
+</li>
+<li><p>A good model gets a value of R^2 close to 1, that  interprets variation  and new variables very well. While a bad model that is not at responding to different variables, has a  R-squared value close to 0.</p>
+</li>
 </ul>
 
 </div>
@@ -12414,6 +12426,16 @@ Think about the pros and cons of adding more training points based on if the tra
 <li>A grid search uses multiple heperpaprameters and another chosen parameters alongside a set of test, training and cross validation sets to test them with eachother.</li>
 <li>The grid search tries all combinations of the hyperpaprameters and the other chosen parameters to estimate its f1 score. The combination of the highest F-beta score will be the best estimator or the best option. </li>
 </ul>
+<p>The inputs of the gridSearch are:</p>
+<ol>
+<li>The estimator for this example is the decision tree regressor. Other possible estimators are support vector machine or the linear regression model.</li>
+<li>params includes a parameters object that include a dictionary data type of the tuning for the estimator. In this example we used the ‘max_depth’ parameter and its suggested values from 1 to 10 that should be tested to choose the best option by the grid search, having the highest f1score.</li>
+<li>Another parameter input is scorer function that calculates the R^2 score by comparing the y values of the training set and the test set and returns the r2 score for every params tried.</li>
+<li>the last parameter is cross validation parameter, which in the ShuffleSplit function we choose the number splits of a single batch of data to be tested which is 10 datapoints in this example.</li>
+</ol>
+<p>The grid search makes a grid or a table that compares the f-beta score for the chosen hyperparameters against the parameters of choice one being row and the other a column, in order to choose the best hyperparameter and parameter combination.</p>
+<p>No, there are many types of performance metrics which differ according to the presented problem.</p>
+<p>Hyperparameters and parameters are often used interchangeably but there is a difference between them. You call something a 'hyperparameter' if it cannot be learned within the estimator directly. However, 'parameters' is more general term. When you say 'passing the parameters to the model', it generally means a combination of hyperparameters along with some other parameters that are not directly related to your estimator but are required for your model.</p>
 
 </div>
 </div>
@@ -12442,7 +12464,28 @@ Think about the pros and cons of adding more training points based on if the tra
 <ul>
 <li>The k-fold cross validation lets us use the training set, test set and the cross validation in a k-fold of sample test sets containing any combination of test, training, or coross validation data, to make the most use of our dataset and causes the model to be trained more efficiently and make the best use of the dataset at hand.</li>
 <li>k-fold Cross-validation is a resampling procedure used to evaluate machine learning models on a limited data sample.</li>
-<li>The k stands for the number of values in a single testing sample.</li>
+<li><p>The k stands for the number of values in a single testing sample.</p>
+</li>
+<li><p>Cross-validation is a resampling procedure used to evaluate machine learning models on a limited data sample.</p>
+</li>
+<li><p>The procedure has a single parameter called k that refers to the number of groups that a given data sample is to be split into. As such, the procedure is often called k-fold cross-validation. When a specific value for k is chosen, it may be used in place of k in the reference to the model, such as k=10 becoming 10-fold cross-validation.</p>
+</li>
+<li><p>Cross-validation is primarily used in applied machine learning to estimate the skill of a machine learning model on unseen data. That is, to use a limited sample in order to estimate how the model is expected to perform in general when used to make predictions on data not used during the training of the model.</p>
+</li>
+<li><p>It is a popular method because it is simple to understand and because it generally results in a less biased or less optimistic estimate of the model skill than other methods, such as a simple train/test split.</p>
+</li>
+</ul>
+<p>The general procedure is as follows:</p>
+<ul>
+<li>Shuffle the dataset randomly.</li>
+<li>Split the dataset into k groups
+For each unique group:</li>
+<li>Take the group as a hold out or test data set</li>
+<li>Take the remaining groups as a training data set</li>
+<li>Fit a model on the training set and evaluate it on the test set</li>
+<li>Retain the evaluation score and discard the model
+Summarize the skill of the model using the sample of model evaluation scores</li>
+<li>Importantly, each observation in the data sample is assigned to an individual group and stays in that group for the duration of the procedure. This means that each sample is given the opportunity to be used in the hold out set 1 time and used to train the model k-1 times.</li>
 </ul>
 
 </div>
@@ -12679,12 +12722,16 @@ Predicted selling price for Client 3&#39;s home: $938,053.85
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 <ul>
-<li><p>Client 3 should sell his/her  home at the highest price of $938,053.85</p>
+<li>Client 3 should sell his/her  home at the highest price of $938,053.85</li>
+<li><p>This price is above the mean and and median price and below the maximum price.</p>
 </li>
-<li><p>Client 2 should sell his/her  home at a moderate price of $232,200.00</p>
+<li><p>Client 2 should sell his/her  home at a low price of $232,200.00</p>
 </li>
-<li><p>Client 1 should sell his/her  home at the lowest price of $406,933.33</p>
+<li><p>This price is below the mean and and median price and below the maximum price. It is near to the minimum prices of the dataset.</p>
 </li>
+<li><p>Client 1 should sell his/her  home at the moderate price of $406,933.33</p>
+</li>
+<li>This price is very near to the mean and and median price values.</li>
 </ul>
 
 </div>
@@ -12771,7 +12818,10 @@ Range in prices: $69,044.61
 <li>The current features are important features to prdict a price of the houses, but adding the square feet of the plot area and the presence of a pool should factor in, too.</li>
 <li>Yes, the model is robust enough to make consistent predictions, as it predicted the 3rd client with the best options with the highest sale price, and the client 2 with the average optioned house with a moderate price and the first client with the worst options as the chepest house.</li>
 <li>Data collected in an urban city should differ from rural city prices as the proximity of the house to the city should be added to the features set.</li>
-<li>The characteristics of the entire neighborhood should be added as one of the feautures, but the pricing should include other features, too.</li>
+<li><p>The characteristics of the entire neighborhood should be added as one of the feautures, but the pricing should include other features, too.</p>
+</li>
+<li><p>The model is good at predicting the house prices that depend largely on only these features, but in the real world much more factors contribute to the values of the house, like the square area of the house, is it a house or an apartment, where it is located, how far is it from a city center. Where is this neighbourhood and which country as housing prices differ a lot from a city to another. The model may be used in a real-world setting after adding more numbers of features used for the pricing prediction.</p>
+</li>
 </ul>
 
 </div>
